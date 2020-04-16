@@ -1,9 +1,9 @@
-const express = require("express");
-const logger = require("morgan");
-const mongoose = require("mongoose");
-const compression = require("compression");
+const express = require('express');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const compression = require('compression');
 
-const PORT = 3000;
+const PORT = 3002;
 
 const app = express();
 
@@ -20,10 +20,12 @@ mongoose.connect("mongodb://localhost/budget", {
   useFindAndModify: false
 });
 
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", { useNewUrlParser: true });
+
 // If deployed, use the deployed database. Otherwise, use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGOD_URI || "mongodb://localhost/mongoHeadlines";
-// Connect to the Mongo DB
-mongoose.connect(MONGODB_URI);
+// var MONGODB_URI = process.env.MONGOD_URI || "mongodb://localhost/budget";
+// // Connect to the Mongo DB
+// mongoose.connect(MONGODB_URI);
 
 // routes
 app.use(require("./routes/api.js"));
