@@ -28,7 +28,7 @@ function populateTable() {
     let tbody = document.querySelector("#tbody");
     tbody.innerHTML = "";
 
-    transactions.forEach(transactions => {
+    transactions.forEach(transaction => {
         // create and populate a table row
         let tr = document.createElement("tr");
         tr.innerHTML = `
@@ -79,7 +79,7 @@ function populateChart() {
 }
 
 function sendTransaction(isAdding) {
-    let nameEl = document.querySelector("t-name");
+    let nameEl = document.querySelector("#t-name");
     let amountEl = document.querySelector("#t-amount");
     let errorEl = document.querySelector(".form .error");
 
