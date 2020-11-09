@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
+mongoose.connect(process.env.DB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -23,9 +23,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", { useNewUrlParser: true });
 
 // If deployed, use the deployed database. Otherwise, use the local mongoHeadlines database
-// var MONGODB_URI = ;
-// // Connect to the Mongo DB
-// mongoose.connect(MONGODB_URI);
+var DB_URI = process.env.DB_URI || "mongodb://localhost/mongoHeadlines";;
+// Connect to the Mongo DB
+mongoose.connect(DB_URI);
 
 // routes
 app.use(require("./routes/api.js"));
